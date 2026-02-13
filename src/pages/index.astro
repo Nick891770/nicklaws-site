@@ -45,6 +45,16 @@ const projects = [
   },
 ];
 
+const sideProjects = [
+  {
+    name: "The Program",
+    description:
+      "Workout tracker built for a 6-week return-to-training program. Logs sets, weight, RPE, and session notes — runs entirely in the browser with no account needed.",
+    url: "https://nick891770.github.io/The-Program/",
+    repo: "https://github.com/Nick891770/The-Program",
+  },
+];
+
 const links = [
   { label: "GitHub", url: "https://github.com/Nick891770", icon: "github" },
   { label: "X", url: "https://x.com/NickLaws_au", icon: "x" },
@@ -93,6 +103,24 @@ const links = [
               <h3>{project.name}</h3>
               <p>{project.description}</p>
               <span class="card-link">View on GitHub &rarr;</span>
+            </a>
+          ))
+        }
+      </div>
+    </section>
+
+    <section class="side-projects">
+      <h2>Side Projects</h2>
+      <div class="grid">
+        {
+          sideProjects.map((project) => (
+            <a href={project.url} class="card" target="_blank" rel="noopener">
+              <h3>{project.name}</h3>
+              <p>{project.description}</p>
+              <div class="card-links">
+                <span class="card-link">Open app &rarr;</span>
+                <a href={project.repo} class="card-secondary" target="_blank" rel="noopener" onclick="event.stopPropagation()">GitHub</a>
+              </div>
             </a>
           ))
         }
@@ -206,10 +234,34 @@ const links = [
     margin-bottom: 0.75rem;
   }
 
+  .card-links {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
   .card-link {
     font-size: 0.8rem;
     color: var(--accent);
     font-weight: 500;
+  }
+
+  .card-secondary {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 0.2rem 0.5rem;
+    transition: border-color 0.2s, color 0.2s;
+  }
+
+  .card-secondary:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  .side-projects {
+    margin-bottom: 3rem;
   }
 
   .links {
